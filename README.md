@@ -6,6 +6,7 @@
 - LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
 - RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
 - FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+- LATERAL JOIN - Subqueries appearing in `FROM` can be preceded by the key word `LATERAL`. This allows them to reference columns provided by preceding `FROM` items. (Without `LATERAL`, each subquery is evaluated independently and so cannot cross-reference any other `FROM` item
 
 
 ## WITH 
@@ -17,7 +18,42 @@
 
 
 ## Other
-### REPEAT
+
+### Statements
+
+### DISTINCT 
+The `SELECT DISTINCT` statement is used to return only distinct (different) values.
+```sql
+SELECT DISTINCT Country FROM Customers;
+```
+### Functions
+#### REPEAT()
 - Repeat word e.g. REPEAT(name, 3) AS name
-### REVERSE
+```sql
+SELECT REPEAT("SQL Tutorial", 3);
+```
+#### REVERSE()
 - Reverse(characteristics) AS characteristics
+```sql 
+SELECT REVERSE('SQL Tutorial');
+```
+
+#### COALESCE
+Returns the first non-null value in a list.
+```sql
+SELECT COALESCE(NULL, 1, 2, 3);
+--result: 1
+```
+
+
+### Expressions
+#### CASE
+```sql
+SELECT OrderID, Quantity,  
+CASE  
+    WHEN Quantity > 30 THEN 'The quantity is greater than 30'  
+    WHEN Quantity = 30 THEN 'The quantity is 30'  
+    ELSE 'The quantity is under 30'  
+END AS QuantityText  
+FROM OrderDetails;
+```
