@@ -45,6 +45,21 @@ SELECT COALESCE(NULL, 1, 2, 3);
 --result: 1
 ```
 
+#### LPAD()
+The LPAD() function left-pads a string with another string, to a certain length.
+LPAD(_string_, _length_, _lpad_string_)
+
+```sql
+SELECT LPAD("InputString", 10, "A");
+```
+
+#### RPAD()
+The RPAD() function right-pads a string with another string, to a certain length.
+RPAD(_string_, _length_, _rpad_string_)
+
+```sql
+SELECT RPAD("InputString", 10, "A");
+```
 
 ### Expressions
 #### CASE
